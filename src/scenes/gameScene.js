@@ -231,10 +231,12 @@ export class GameScene extends PIXI.Container
         if (this.parent) {
             this.parent.addChild(this);
         }
-
+        
     }
 
     onDragEnd() {
+        this.off('pointermove', this.parent.onDragMove);
+
         if (this.dragTarget) {
             this.dragTarget = null;
             this.alpha = 1;
@@ -339,12 +341,9 @@ export class GameScene extends PIXI.Container
     }
 
     displayParts(roboPartType) {
-        // console.log(`roboPartType is: ${roboPartType}`);
         this.children.forEach(child => {
             if (child instanceof roboPart) {
-                // console.log(`this ${child}'s type is ${child.type}`);
                 if (child.type === roboPartType) {
-                    // console.log(child);
                     child.visible = true;
                 }
             }
@@ -362,19 +361,8 @@ export class GameScene extends PIXI.Container
         });
         
     } 
-
-    /*
-    addArms() {
-        let arms = [arm1, arm2, arm3];
-
-        arm1 = new roboPart({ x: 0, y: 0, image: 'xxx.png', type: BODYPARTS.ARM });
-        arm2 = new roboPart({ x: 0, y: 0, image: 'yyy.png', type: BODYPARTS.ARM });
-
-    }
-    */
     
     // add a dsstore, stores stuff that happens to the directory for mac os
     // look into containers and display objects: graphical objects that can be moved around
 
-    // to be fixed: if you drag off a shape and its toolbox is closed, open its home toolbox before returning it
 }
