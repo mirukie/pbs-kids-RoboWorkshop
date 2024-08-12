@@ -103,7 +103,9 @@ export class DecorateScene extends PIXI.Container
     }
 
     onDragEnd() {
+
         if (this.dragTarget) {
+            this.off('pointermove', this.parent.onDragMove);
             this.dragTarget = null;
             this.alpha = 1;
         }

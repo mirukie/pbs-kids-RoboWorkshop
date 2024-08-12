@@ -231,13 +231,13 @@ export class GameScene extends PIXI.Container
         if (this.parent) {
             this.parent.addChild(this);
         }
-        
+
     }
 
     onDragEnd() {
-        this.off('pointermove', this.parent.onDragMove);
-
+        
         if (this.dragTarget) {
+            this.off('pointermove', this.parent.onDragMove);
             this.dragTarget = null;
             this.alpha = 1;
         }
