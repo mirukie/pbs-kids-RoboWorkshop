@@ -152,19 +152,10 @@ export class GameScene extends PIXI.Container
         this.children.forEach(function (child) { 
             if (child instanceof roboPart) {
 
-                // console.log(child);
-                // if (child.type === BODYPARTS.ARM) {
-                //     console.log(child);
-                // }
-
                 child.on('pointerdown', this.onDragStart);
 
                 child.on('pointerup', this.onDragEnd);
                 child.on('pointerupoutside', this.onDragEnd);
-
-                // if (child.onFrame) {
-                //     child.on('pointertap', this.onDoubleTap);
-                // }
 
             } else if (child instanceof toolbox) {
                 child.on('pointerdown', this.onClick);
@@ -174,13 +165,13 @@ export class GameScene extends PIXI.Container
     }
 
     
-    update(ticker) {
+    update() {
 
         this.children.forEach(child => {
 
-            if (child instanceof roboPart || child instanceof toolbox) {
-                child.update(ticker); // calls update from roboPart or toolbox class
-            }
+            // if (child instanceof roboPart || child instanceof toolbox) {
+            //     child.update(ticker); // calls update from roboPart or toolbox class
+            // }
 
             if (child instanceof toolbox) {
                 if (child.open) {
@@ -301,7 +292,6 @@ export class GameScene extends PIXI.Container
         if (closestObject) {
 
             this.parent.itemSFX.play();
-            // console.log('sound playing');
 
             this.x = closestObject.x;
             this.y = closestObject.y;

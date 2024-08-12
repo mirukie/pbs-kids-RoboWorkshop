@@ -4,7 +4,7 @@ import { TitleScene } from './title';
 import { EndScene } from './endScene';
 import { decoration } from '../gameobjects/decoration';
 import { gameMath } from '../gameMath';
-import { roboPart } from '../gameobjects/roboPart';
+// import { roboPart } from '../gameobjects/roboPart';
 import decoAttrs from '../config/decorations.json';
 
 export class DecorateScene extends PIXI.Container
@@ -110,20 +110,20 @@ export class DecorateScene extends PIXI.Container
 
         let robotCollision = null;
 
-        this.parent.children.forEach(child => {
-            if (child instanceof roboPart) {
-                if (gameMath.collision(this, child)) {
-                    robotCollision = this;
-                    this.onRobot = true;
-                    // console.log(`${this} is on the robot`);
+        for (let i = 0; i < this.parent.robot.length; ++i) {
+            if (gameMath.collision(this, this.parent.robot[i])) {
 
-                    if (this.parent.decorations && !this.parent.decorations.includes(this)) {
-                        this.parent.itemSFX.play();
-                        this.parent.decorations.push(this);
-                    }
+                console.log("collision detected");
+                
+                robotCollision = this.parent.robot[i];
+                this.onRobot = true;
+
+                if (this.parent.decorations && !this.parent.decorations.includes(this)) {
+                    this.parent.itemSFX.play();
+                    this.parent.decorations.push(this);
                 }
             }
-        });
+        }
 
         if (!robotCollision) {
             this.x = this.initialX;

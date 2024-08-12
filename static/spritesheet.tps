@@ -169,24 +169,18 @@
             <key>defaultPivotPoint</key>
             <point_f>0,0</point_f>
             <key>writePivotPoints</key>
-            <false/>
+            <true/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../devAssets/sprites/decorations/eyes.png</key>
-            <key type="filename">../devAssets/sprites/decorations/lightbulb.png</key>
-            <key type="filename">../devAssets/sprites/decorations/tshirt.png</key>
-            <key type="filename">../devAssets/sprites/navButtons/backArrow.png</key>
-            <key type="filename">../devAssets/sprites/navButtons/checkmark.png</key>
-            <key type="filename">../devAssets/sprites/navButtons/homeButton.png</key>
-            <key type="filename">../devAssets/sprites/navButtons/nextArrow.png</key>
-            <key type="filename">../devAssets/sprites/navButtons/restart.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/armBoxClosed.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/armBoxOpen.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/bodyBoxClosed.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/bodyBoxOpen.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/legBoxClosed.png</key>
-            <key type="filename">../devAssets/sprites/toolboxes/legBoxOpen.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco1.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco12.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco13.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco16.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco17.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco2.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco5.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco8.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -195,9 +189,116 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>25,25,50,50</rect>
+                <rect>14,14,29,28</rect>
                 <key>scale9Paddings</key>
-                <rect>25,25,50,50</rect>
+                <rect>14,14,29,28</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco10.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,13,26,27</rect>
+                <key>scale9Paddings</key>
+                <rect>13,13,26,27</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco11.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco4.png</key>
+            <key type="filename">../devAssets/sprites/decorations/deco6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,11,25,22</rect>
+                <key>scale9Paddings</key>
+                <rect>12,11,25,22</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco14.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>18,17,35,34</rect>
+                <key>scale9Paddings</key>
+                <rect>18,17,35,34</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco15.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,17,25,34</rect>
+                <key>scale9Paddings</key>
+                <rect>13,17,25,34</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,14,31,27</rect>
+                <key>scale9Paddings</key>
+                <rect>16,14,31,27</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco7.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>28,11,57,22</rect>
+                <key>scale9Paddings</key>
+                <rect>28,11,57,22</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/decorations/deco9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,17,65,34</rect>
+                <key>scale9Paddings</key>
+                <rect>33,17,65,34</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -243,6 +344,43 @@
                 <rect>75,90,150,179</rect>
                 <key>scale9Paddings</key>
                 <rect>75,90,150,179</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/navButtons/backArrow.png</key>
+            <key type="filename">../devAssets/sprites/navButtons/checkmark.png</key>
+            <key type="filename">../devAssets/sprites/navButtons/restart.png</key>
+            <key type="filename">../devAssets/sprites/toolboxes/armBoxClosed.png</key>
+            <key type="filename">../devAssets/sprites/toolboxes/armBoxOpen.png</key>
+            <key type="filename">../devAssets/sprites/toolboxes/bodyBoxClosed.png</key>
+            <key type="filename">../devAssets/sprites/toolboxes/bodyBoxOpen.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/navButtons/homeButton.png</key>
+            <key type="filename">../devAssets/sprites/navButtons/nextArrow.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>0.5</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -338,7 +476,6 @@
             </struct>
             <key type="filename">../devAssets/sprites/shapes/arms/arm1.2.png</key>
             <key type="filename">../devAssets/sprites/shapes/bodies/body1.png</key>
-            <key type="filename">../devAssets/sprites/shapes/whitesquare120x120.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -488,6 +625,36 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../devAssets/sprites/shapes/arms/arm6.2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>38,15,75,30</rect>
+                <key>scale9Paddings</key>
+                <rect>38,15,75,30</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/shapes/arms/arm6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>38,20,75,41</rect>
+                <key>scale9Paddings</key>
+                <rect>38,20,75,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../devAssets/sprites/shapes/arms/arm7.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -503,7 +670,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../devAssets/sprites/shapes/arms/robotarm6.2.png</key>
+            <key type="filename">../devAssets/sprites/shapes/bodies/body2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -512,24 +679,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>38,15,75,30</rect>
+                <rect>40,32,80,63</rect>
                 <key>scale9Paddings</key>
-                <rect>38,15,75,30</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../devAssets/sprites/shapes/arms/robotarm6.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>38,20,75,41</rect>
-                <key>scale9Paddings</key>
-                <rect>38,20,75,41</rect>
+                <rect>40,32,80,63</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -548,6 +700,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../devAssets/sprites/shapes/bodies/body4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>34,22,67,45</rect>
+                <key>scale9Paddings</key>
+                <rect>34,22,67,45</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../devAssets/sprites/shapes/bodies/body5.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -563,6 +730,51 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../devAssets/sprites/shapes/bodies/body6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>42,19,83,38</rect>
+                <key>scale9Paddings</key>
+                <rect>42,19,83,38</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/shapes/bodies/body7.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>31,24,62,49</rect>
+                <key>scale9Paddings</key>
+                <rect>31,24,62,49</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/shapes/heads/head1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>37,22,75,45</rect>
+                <key>scale9Paddings</key>
+                <rect>37,22,75,45</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../devAssets/sprites/shapes/heads/head10.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -575,6 +787,21 @@
                 <rect>36,28,71,55</rect>
                 <key>scale9Paddings</key>
                 <rect>36,28,71,55</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/shapes/heads/head2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>21,27,42,53</rect>
+                <key>scale9Paddings</key>
+                <rect>21,27,42,53</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -680,21 +907,6 @@
                 <rect>36,33,72,65</rect>
                 <key>scale9Paddings</key>
                 <rect>36,33,72,65</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../devAssets/sprites/shapes/hexagon.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>0.5</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>87,79,173,157</rect>
-                <key>scale9Paddings</key>
-                <rect>87,79,173,157</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -807,6 +1019,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../devAssets/sprites/shapes/legs/leg7.2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>20,24,40,47</rect>
+                <key>scale9Paddings</key>
+                <rect>20,24,40,47</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../devAssets/sprites/shapes/legs/leg7.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -819,21 +1046,6 @@
                 <rect>53,37,105,73</rect>
                 <key>scale9Paddings</key>
                 <rect>53,37,105,73</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../devAssets/sprites/shapes/star.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>47,45,94,89</rect>
-                <key>scale9Paddings</key>
-                <rect>47,45,94,89</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -850,6 +1062,22 @@
                 <rect>25,19,50,39</rect>
                 <key>scale9Paddings</key>
                 <rect>25,19,50,39</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../devAssets/sprites/toolboxes/legBoxClosed.png</key>
+            <key type="filename">../devAssets/sprites/toolboxes/legBoxOpen.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>40,30,79,60</rect>
+                <key>scale9Paddings</key>
+                <rect>40,30,79,60</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
