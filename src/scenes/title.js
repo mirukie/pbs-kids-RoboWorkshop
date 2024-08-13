@@ -14,17 +14,31 @@ export class TitleScene extends PIXI.Container
     {
         PIXI.Assets.add({alias: 'titleBG', src: './assets/backgrounds/botbuilderfrontpage.png'});
         PIXI.Assets.add({alias: 'spritesheet', src: './assets/spritesheets/main-spritesheet.json'});
+        PIXI.Assets.add({alias: 'aniSprite', src: './assets/spritesheets/aniSpritesheet.json'});
         PIXI.Assets.add({alias: 'welcome', src: './assets/audio/workshopWelcome.mp3'});
         PIXI.Assets.add({alias: 'buildRobo', src: './assets/audio/buildYourRobotSelect.mp3'});
 
         this.backgroundTexture = await PIXI.Assets.load('titleBG');
-        await PIXI.Assets.load(['spritesheet', 'narrator', 'welcome', 'buildRobo']);
+        await PIXI.Assets.load(['spritesheet', 'aniSprite', 'narrator', 'welcome', 'buildRobo']);
     }
 
     start()
     {
         const scalerBackground = PIXI.Sprite.from(this.backgroundTexture);
         this.addChild(scalerBackground);
+
+        /*
+        add animated sprite for conveyer belt!
+        */
+        const animations = PIXI.Assets.cache.get('./assets/spritesheets/aniSpritesheet.json').data.animations; // grab the automatically recognized/generated animations from the cache
+
+        const conveyer = PIXI.AnimatedSprite.fromFrames(animations["conveyer/conveyerbelt"]);
+        conveyer.animationSpeed = 1 / 12;
+        conveyer.position.set(0, 535);
+        conveyer.play();
+
+        this.addChild(conveyer);
+
 
         let puzzleBtn = new button({ x: this.game.width / 2 - 250, y: this.game.height / 2 + 200, image: "gameSelectionBtns/roboPuzzle.png" });
         let buildYourOwnBtn = new button({ x: this.game.width / 2 + 250, y: this.game.height / 2 + 200, image: "gameSelectionBtns/buildYourRobot.png" });

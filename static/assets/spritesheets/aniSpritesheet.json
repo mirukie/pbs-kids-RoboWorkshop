@@ -1,0 +1,39 @@
+{"frames": {
+
+"conveyer/conveyerbelt-01.png":
+{
+	"frame": {"x":0,"y":0,"w":1320,"h":245},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1320,"h":245},
+	"sourceSize": {"w":1320,"h":245}
+},
+"conveyer/conveyerbelt-02.png":
+{
+	"frame": {"x":0,"y":245,"w":1320,"h":245},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1320,"h":245},
+	"sourceSize": {"w":1320,"h":245}
+},
+"conveyer/conveyerbelt-03.png":
+{
+	"frame": {"x":0,"y":490,"w":1320,"h":245},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1320,"h":245},
+	"sourceSize": {"w":1320,"h":245}
+}},
+"animations": {
+	"conveyer/conveyerbelt": ["conveyer/conveyerbelt-01.png","conveyer/conveyerbelt-02.png","conveyer/conveyerbelt-03.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "aniSpritesheet.png",
+	"format": "RGBA8888",
+	"size": {"w":1320,"h":735},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:598311797351c9ae8b90b5b2070cb76a:76d63e4945a27241a9b769d803f54acc:dc3a5799b7730b7dfa9efac3e1d28b52$"
+}
+}

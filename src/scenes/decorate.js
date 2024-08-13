@@ -115,7 +115,7 @@ export class DecorateScene extends PIXI.Container
         for (let i = 0; i < this.parent.robot.length; ++i) {
             if (gameMath.collision(this, this.parent.robot[i])) {
 
-                console.log("collision detected");
+                // console.log("collision detected");
                 
                 robotCollision = this.parent.robot[i];
                 this.onRobot = true;
