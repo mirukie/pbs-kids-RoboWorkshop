@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>assets/spritesheets/aniSpritesheet.json</filename>
             </struct>
         </map>
         <key>multiPackMode</key>
@@ -173,9 +173,9 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../devAssets/animatiedSprites/conveyerbelt/conveyerbelt-01.png</key>
-            <key type="filename">../devAssets/animatiedSprites/conveyerbelt/conveyerbelt-02.png</key>
-            <key type="filename">../devAssets/animatiedSprites/conveyerbelt/conveyerbelt-03.png</key>
+            <key type="filename">../devAssets/animatiedSprites/conveyer/conveyerbelt-01.png</key>
+            <key type="filename">../devAssets/animatiedSprites/conveyer/conveyerbelt-02.png</key>
+            <key type="filename">../devAssets/animatiedSprites/conveyer/conveyerbelt-03.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

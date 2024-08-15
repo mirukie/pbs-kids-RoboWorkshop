@@ -116,7 +116,9 @@ export class DecorateScene extends PIXI.Container
             if (gameMath.collision(this, this.parent.robot[i])) {
 
                 // console.log("collision detected");
-                
+                //console.log(`deco x: ${this.x}, deco y: ${this.y}, deco height: ${this.height}, deco width: ${this.width}`);
+                console.log(`roboPart x: ${this.parent.robot[i].x}, roboPart y: ${this.parent.robot[i].y}, roboPart height: ${this.parent.robot[i].height}, roboPart width: ${this.parent.robot[i].width}`);
+
                 robotCollision = this.parent.robot[i];
                 this.onRobot = true;
 
@@ -140,6 +142,8 @@ export class DecorateScene extends PIXI.Container
                 }
             }
         }
+
+        console.log(`deco x: ${this.x}, deco y: ${this.y}, deco height: ${this.height}, deco width: ${this.width}`);
 
         // console.log(this.parent.decorations);
     }

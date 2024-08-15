@@ -208,7 +208,7 @@ export class GameScene extends PIXI.Container
         this.dragTarget = this;
         this.alpha = 0.75;
         this.on('pointermove', this.parent.onDragMove); // since this is called on each child, make sure it grabs the function from the parent file 
-
+        
         // if the shape we're dragging currently belongs to a roboFrame, make sure it no longer does
         // also, restore the frame's opacity
         this.parent.children.forEach(child => {
