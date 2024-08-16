@@ -32,6 +32,11 @@ export class DecorateScene extends PIXI.Container
         const scalerBackground = PIXI.Sprite.from(this.backgroundTexture);
         this.addChild(scalerBackground);
 
+        // setting fields to make the scene interactive
+        this.interactiveChildren = true;
+        this.eventMode = "static";
+
+        // sounds
         this.itemSFX = PIXI.Assets.get('bubble');
 
         /*
@@ -78,16 +83,18 @@ export class DecorateScene extends PIXI.Container
         this.children.forEach(function (child) {
             if (child instanceof decoration) {
                 child.on('pointerdown', this.onDragStart);
-                child.on('pointerup', this.onDragEnd);
-                child.on('pointerupoutside', this.onDragStart);
+            
             }
-        }.bind(this));
+        }.bind(this)); 
+        
+        this.on('pointerup', this.onDragEnd);
+        this.on('pointerupoutside', this.onDragStart);
     }
 
     onDragStart() {
-        this.dragTarget = this;
+        this.parent.dragTarget = this;
         this.alpha = 0.75;
-        this.on('pointermove', this.parent.onDragMove); // since this is called on each child, make sure it grabs the function from the parent file 
+        this.parent.on('pointermove', this.parent.onDragMove); // since this is called on each child, make sure it grabs the function from the parent file 
     }
 
     onDragMove(event) {
@@ -96,8 +103,8 @@ export class DecorateScene extends PIXI.Container
             this.dragTarget.parent.toLocal(event.global, this.dragTarget.parent, this.dragTarget.position);
         }
 
-        if (this.parent) {
-            this.parent.addChild(this);
+        if (this) {
+            this.addChild(this.dragTarget);
         }
 
     }
@@ -105,47 +112,40 @@ export class DecorateScene extends PIXI.Container
     onDragEnd() {
 
         if (this.dragTarget) {
-            this.off('pointermove', this.parent.onDragMove);
-            this.dragTarget = null;
-            this.alpha = 1;
+            this.off('pointermove', this.onDragMove);
+            this.dragTarget.alpha = 1;
+        } else {
+            return;
         }
 
         let robotCollision = null;
 
-        for (let i = 0; i < this.parent.robot.length; ++i) {
-            if (gameMath.collision(this, this.parent.robot[i])) {
+        for (let i = 0; i < this.robot.length; ++i) {
+            if (gameMath.collision(this.dragTarget, this.robot[i])) {
+                robotCollision = this.robot[i];
+                this.dragTarget.onRobot = true;
 
-                // console.log("collision detected");
-                //console.log(`deco x: ${this.x}, deco y: ${this.y}, deco height: ${this.height}, deco width: ${this.width}`);
-                console.log(`roboPart x: ${this.parent.robot[i].x}, roboPart y: ${this.parent.robot[i].y}, roboPart height: ${this.parent.robot[i].height}, roboPart width: ${this.parent.robot[i].width}`);
-
-                robotCollision = this.parent.robot[i];
-                this.onRobot = true;
-
-                if (this.parent.decorations && !this.parent.decorations.includes(this)) {
-                    this.parent.itemSFX.play();
-                    this.parent.decorations.push(this);
+                if (this.decorations && !this.decorations.includes(this.dragTarget)) {
+                    this.itemSFX.play();
+                    this.decorations.push(this.dragTarget);
                 }
             }
         }
 
         if (!robotCollision) {
-            this.x = this.initialX;
-            this.y = this.initialY;
+            this.dragTarget.x = this.dragTarget.initialX;
+            this.dragTarget.y = this.dragTarget.initialY;
 
-            if (this.parent.decorations && this.parent.decorations.includes(this)) {
-                for (let i = 0; i < this.parent.decorations.length; ++i) {
-                    if (this === this.parent.decorations[i]) {
-                        this.parent.decorations.splice(i, 1); // removes element at index i and resizes array
-                        // console.log("removing shape from decorations");
+            if (this.decorations && this.decorations.includes(this.dragTarget)) {
+                for (let i = 0; i < this.decorations.length; ++i) {
+                    if (this.dragTarget === this.decorations[i]) {
+                        this.decorations.splice(i, 1); // removes element at index i and resizes array
                     }
                 }
             }
         }
 
-        console.log(`deco x: ${this.x}, deco y: ${this.y}, deco height: ${this.height}, deco width: ${this.width}`);
-
-        // console.log(this.parent.decorations);
+        this.dragTarget = null;
     }
 
     update()

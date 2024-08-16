@@ -166,10 +166,6 @@ export class GameScene extends PIXI.Container
 
         this.children.forEach(child => {
 
-            // if (child instanceof roboPart || child instanceof toolbox) {
-            //     child.update(ticker); // calls update from roboPart or toolbox class
-            // }
-
             if (child instanceof toolbox) {
                 if (child.open) {
                     switch(child.type) {
@@ -300,7 +296,7 @@ export class GameScene extends PIXI.Container
             closestObject.alpha = 0;
             this.dragTarget.onFrame = true;
 
-            if (this.robot && !this.robot.includes(this)) {
+            if (this.robot && !this.robot.includes(this.dragTarget)) {
                 this.robot.push(this.dragTarget);
             }
 
