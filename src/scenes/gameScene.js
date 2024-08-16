@@ -35,8 +35,9 @@ export class GameScene extends PIXI.Container
         const scalerBackground = new PIXI.Sprite(texture);
         this.addChild(scalerBackground);
 
-        // setting interactiveChildren here could be useful
-        this.interactiveChildren = true;        
+        // setting fields to make the scene interactive
+        this.interactiveChildren = true;
+        this.eventMode = "static";
 
         /*
         add the robot's frame
@@ -151,20 +152,16 @@ export class GameScene extends PIXI.Container
         // turn on listeners
         this.children.forEach(function (child) { 
             if (child instanceof roboPart) {
-
                 child.on('pointerdown', this.onDragStart);
-
-                child.on('pointerup', this.onDragEnd);
-                child.on('pointerupoutside', this.onDragEnd);
-
             } else if (child instanceof toolbox) {
                 child.on('pointerdown', this.onClick);
             }
         }.bind(this));
 
+        this.on('pointerup', this.onDragEnd);
+        this.on('pointerupoutside', this.onDragEnd);
     }
 
-    
     update() {
 
         this.children.forEach(child => {
@@ -205,9 +202,10 @@ export class GameScene extends PIXI.Container
     }
     
     onDragStart() {
-        this.dragTarget = this;
+        this.parent.dragTarget = this;
         this.alpha = 0.75;
-        this.on('pointermove', this.parent.onDragMove); // since this is called on each child, make sure it grabs the function from the parent file 
+
+        this.parent.on('pointermove', this.parent.onDragMove); // since this is called on each child, make sure it grabs the function from the parent file 
         
         // if the shape we're dragging currently belongs to a roboFrame, make sure it no longer does
         // also, restore the frame's opacity
@@ -228,8 +226,8 @@ export class GameScene extends PIXI.Container
             this.dragTarget.parent.toLocal(event.global, this.dragTarget.parent, this.dragTarget.position);
         }
 
-        if (this.parent) {
-            this.parent.addChild(this);
+        if (this) {
+            this.addChild(this.dragTarget);
         }
 
     }
@@ -237,22 +235,23 @@ export class GameScene extends PIXI.Container
     onDragEnd() {
         
         if (this.dragTarget) {
-            this.off('pointermove', this.parent.onDragMove);
-            this.dragTarget = null;
-            this.alpha = 1;
+            this.off('pointermove', this.onDragMove);
+            this.dragTarget.alpha = 1;
+        } else {
+            return;
         }
 
         let closestDistance = null;
         let closestObject = null;
 
-        this.parent.children.forEach(child => {
+        this.children.forEach(child => {
 
             if (child instanceof roboFrame) {
 
-                if (gameMath.collision(this, child)) { // if the roboFrame is colliding with a roboPart
+                if (gameMath.collision(this.dragTarget, child)) { // if the roboFrame is colliding with a roboPart
 
                     // calculate the distance between the two objects
-                    let distance = gameMath.calculateDistance(this, child);
+                    let distance = gameMath.calculateDistance(this.dragTarget, child);
 
                     if(closestDistance === null || distance < closestDistance) {
                         closestDistance = distance;
@@ -262,10 +261,10 @@ export class GameScene extends PIXI.Container
                 } else {
                     
                     // if the current shape being dragged is no longer colliding with a roboFrame, return it to its og position
-                    if (child.currentShape === this) {
+                    if (child.currentShape === this.dragTarget) {
                         child.currentShape = null; // additionally, the roboFrame no longer has a shape on it
-                        this.x = this.initialX;
-                        this.y = this.initialY;
+                        this.dragTarget.x = this.dragTarget.initialX;
+                        this.dragTarget.y = this.dragTarget.initialY;
                     }
 
                 } 
@@ -280,10 +279,10 @@ export class GameScene extends PIXI.Container
             closestObject.currentShape.y = closestObject.currentShape.initialY;
             closestObject.currentShape.onFrame = false;
 
-            if (this.parent.robot && this.parent.robot.includes(closestObject.currentShape)) {
-                for (let i = 0; i < this.parent.robot.length; ++i) {
-                    if (closestObject.currentShape === this.parent.robot[i]) {
-                        this.parent.robot.splice(i, 1); // removes 1 element starting at index i and resizes array
+            if (this.robot && this.robot.includes(closestObject.currentShape)) {
+                for (let i = 0; i < this.robot.length; ++i) {
+                    if (closestObject.currentShape === this.robot[i]) {
+                        this.robot.splice(i, 1); // removes 1 element starting at index i and resizes array
                     }
                 }
             }
@@ -293,31 +292,33 @@ export class GameScene extends PIXI.Container
         // also, update its currentShape and make the frame transparent
         if (closestObject) {
 
-            this.parent.itemSFX.play();
+            this.itemSFX.play();
 
-            this.x = closestObject.x;
-            this.y = closestObject.y;
-            closestObject.currentShape = this;
+            this.dragTarget.x = closestObject.x;
+            this.dragTarget.y = closestObject.y;
+            closestObject.currentShape = this.dragTarget;
             closestObject.alpha = 0;
-            this.onFrame = true;
+            this.dragTarget.onFrame = true;
 
-            if (this.parent.robot && !this.parent.robot.includes(this)) {
-                this.parent.robot.push(this);
+            if (this.robot && !this.robot.includes(this)) {
+                this.robot.push(this.dragTarget);
             }
 
         } else { // otherwise, the roboPart was dropped outside with no collision, so bring it back to its og position
-            this.x = this.initialX;
-            this.y = this.initialY;
-            this.onFrame = false;
+            this.dragTarget.x = this.dragTarget.initialX;
+            this.dragTarget.y = this.dragTarget.initialY;
+            this.dragTarget.onFrame = false;
 
-            if (this.parent.robot && this.parent.robot.includes(this)) {
-                for (let i = 0; i < this.parent.robot.length; ++i) {
-                    if (this === this.parent.robot[i]) {
-                        this.parent.robot.splice(i, 1); // removes element at index i and resizes array
+            if (this.robot && this.robot.includes(this.dragTarget)) {
+                for (let i = 0; i < this.robot.length; ++i) {
+                    if (this.dragTarget === this.robot[i]) {
+                        this.robot.splice(i, 1); // removes element at index i and resizes array
                     }
                 }
             }
         }
+
+        this.dragTarget = null;
 
     }
 
